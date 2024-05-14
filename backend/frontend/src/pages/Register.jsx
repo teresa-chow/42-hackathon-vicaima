@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import RegisterForm from "../components/registerForm"
 import api from '../api';
+import Upload from '../components/upload';
 
 function Register() {
     const [userIsAuthorized, setUserIsAuthorized] = useState(false);
@@ -17,8 +18,7 @@ function Register() {
     if (!userIsAuthorized) {
         return <div>You are not authorized to view this page.</div>;
     }
-
-    return <RegisterForm route="/api/user/register/" />;
+    return <Upload route="/api/user/upload/" />;
 }
 
 export default Register;

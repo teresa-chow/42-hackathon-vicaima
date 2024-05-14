@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class UserProfile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     numero_colaborador = models.IntegerField(unique=True, null=True)
     primeiro_nome = models.CharField(max_length=100, null=True)
     ultimo_nome = models.CharField(max_length=100, null=True)
@@ -14,5 +15,5 @@ class UserProfile(models.Model):
     diretor = models.CharField(max_length=10, null=True)
 
     def __str__(self):
-        return self.user.username
+        return self.user.username if self.user else ''
 
