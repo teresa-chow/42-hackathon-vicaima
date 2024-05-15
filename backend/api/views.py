@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from .insert import AvaliacaoSerializer
-from .models import Avaliacao
+from .models import Avaliacao, UserProfile
+from datetime import datetime
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny, BasePermission
@@ -78,3 +79,29 @@ class UserDetailView(generics.RetrieveAPIView):
     def get(self, request, username, format=None):
         user = self.get_object(username)
         return Response(user.to_dict())
+    
+class ImportUserProfiles(generics.CreateAPIView):
+    def post(self, request, format=None):
+        data = request.data
+        data_admissao = datetime.strptime(data['data_admissao'], '%Y-%m-%d').date()
+        username = (data['primeiro_nome'] + "_" + data['numero_colaborador']).replace(' ', '')
+        password = (data['primeiro_nome'] + data['ultimo_nome']).replace(' ', '')
+        user, created = User.objects.get_or_create(username=username)
+        if created:
+            user.set_password(password)
+            user.save()
+        UserProfile.objects.update_or_create(
+            numero_colaborador=data['numero_colaborador'],
+            defaults={
+                'user': user,
+                'primeiro_nome': data['primeiro_nome'],
+                'ultimo_nome': data['ultimo_nome'],
+                'avaliador': data['avaliador'],
+                'departamento': data['departamento'],
+                'função': data['função'],
+                'data_admissão': data_admissao,
+                'grupo': data['grupo'],
+                'diretor': data['diretor']
+            }
+        )
+        return Response({"message": "User profile imported successfully"}, status=status.HTTP_201_CREATED)

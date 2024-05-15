@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from api.views import AvaliacaoCreateView, AvaliacaoListView, AvaliacaoDeleteView, UserDetailView, CheckUserGroup, FileUploadView
+from api.views import AvaliacaoCreateView, AvaliacaoListView, AvaliacaoDeleteView, UserDetailView, CheckUserGroup, FileUploadView, ImportUserProfiles
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 urlpatterns = [
@@ -27,6 +27,7 @@ urlpatterns = [
     path('api/user/<str:username>/', UserDetailView.as_view()),
     path('api/event/', AvaliacaoCreateView.as_view()),
     path('api/check_group/', CheckUserGroup.as_view(), name='check_group'),
+    path('api/create/', ImportUserProfiles.as_view()),
     path("api/token/", TokenObtainPairView.as_view()),
     path("api/token/refresh/", TokenRefreshView.as_view()),
     path("api-auth/", include("rest_framework.urls")),
