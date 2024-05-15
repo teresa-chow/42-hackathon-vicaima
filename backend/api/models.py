@@ -16,4 +16,18 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user.username if self.user else ''
+    
+class Avaliacao(models.Model):
+    id = models.AutoField(primary_key=True)
+    avaliador = models.ForeignKey('auth.User', on_delete=models.SET_NULL, null=True, related_name='avaliacoes_dadas')
+    avaliado = models.ForeignKey('auth.User', on_delete=models.SET_NULL, null=True, related_name='avaliacoes_recebidas')
+    data_inicial = models.DateField(null=True)
+    data_final = models.DateField(null=True)
+
+    class Meta:
+        verbose_name = 'Avaliação'
+        verbose_name_plural = 'Avaliações'
+
+    def __str__(self):
+        return f'Avaliação de {self.avaliador} para {self.avaliado}'
 

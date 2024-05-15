@@ -16,13 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from api.views import CreateUserView, CheckUserGroup
+from api.views import AvaliacaoCreateView, CheckUserGroup, AvaliacaoListView, AvaliacaoDeleteView, UserDetailView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 from api.views import FileUploadView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/user/upload/', FileUploadView.as_view()),
+    path('api/user/avaliacoes/', AvaliacaoListView.as_view()),
+    path('api/user/delete/<str:avaliador>/<str:avaliado>/', AvaliacaoDeleteView.as_view()),
+    path('api/user/<str:username>/', UserDetailView.as_view()),
+    path('api/user/event/', AvaliacaoCreateView.as_view()),
     path('api/user/check_group/', CheckUserGroup.as_view(), name='check_user_group'),
     path("api/token/", TokenObtainPairView.as_view(), name="get_token"),
     path("api/token/refresh/", TokenRefreshView.as_view(), name="refresh"),

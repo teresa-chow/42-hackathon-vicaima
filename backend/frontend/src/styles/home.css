@@ -1,0 +1,39 @@
+/* .sidebar {
+    height: 100vh;
+    padding: 1rem 0;
+    overflow-y: auto;
+} */
+
+.text-center {
+    text-align: center;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+.shadow {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+.thead-dark {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.bg-light {
+    background-color: #f8f9fa!important;
+}
+
+.container-padding-top {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /* This makes sure the content is centered vertically */
+}
+
+.heading-margin-top {
+    margin-top: 10px;
+    text-align: center; /* This centers the text horizontally */
+}

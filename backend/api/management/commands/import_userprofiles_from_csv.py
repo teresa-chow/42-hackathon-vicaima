@@ -15,8 +15,8 @@ class Command(BaseCommand):
         next(reader)  # Skip the header row
         for row in reader:
             data_admissao = datetime.strptime(row[6], '%d/%m/%Y').date()
-            username = row[1] + row[2].strip(' ')  # Generate a random username
-            password = row[1] + row[0].strip(' ')  # Generate a random password
+            username = (row[1] + "_" + row[0]).replace(' ', '')
+            password = (row[1] + row[2]).replace(' ', '')
             user, created = User.objects.get_or_create(username=username)
             if created:
                 user.set_password(password)
