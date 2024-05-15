@@ -7,7 +7,7 @@ function Event() {
     const [userIsAuthorized, setUserIsAuthorized] = useState(false);
 
     useEffect(() => {
-        api.get('/api/user/check_group/')
+        api.get('/api/check_group/')
             .then(response => {
                 if (response.data.is_member_of_group || response.data.is_superuser) {
                     setUserIsAuthorized(true);

@@ -16,9 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from api.views import AvaliacaoCreateView, CheckUserGroup, AvaliacaoListView, AvaliacaoDeleteView, UserDetailView
+from api.views import AvaliacaoCreateView, AvaliacaoListView, AvaliacaoDeleteView, UserDetailView, CheckUserGroup, FileUploadView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-from api.views import FileUploadView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,8 +26,8 @@ urlpatterns = [
     path('api/user/delete/<str:avaliador>/<str:avaliado>/', AvaliacaoDeleteView.as_view()),
     path('api/user/<str:username>/', UserDetailView.as_view()),
     path('api/user/event/', AvaliacaoCreateView.as_view()),
-    path('api/user/check_group/', CheckUserGroup.as_view(), name='check_user_group'),
-    path("api/token/", TokenObtainPairView.as_view(), name="get_token"),
-    path("api/token/refresh/", TokenRefreshView.as_view(), name="refresh"),
+    path('api/check_group/', CheckUserGroup.as_view(), name='check_group'),
+    path("api/token/", TokenObtainPairView.as_view()),
+    path("api/token/refresh/", TokenRefreshView.as_view()),
     path("api-auth/", include("rest_framework.urls")),
 ]

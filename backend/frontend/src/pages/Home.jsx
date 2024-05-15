@@ -5,18 +5,22 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import '../styles/home.css';
+import axios from 'axios';
 
 function Home() {
     const [avaliacoes, setAvaliacoes] = useState([]);
     const [userIsAuthorized, setUserIsAuthorized] = useState(false);
-    const username = localStorage.getItem('username'); // Get the username from local storage
+    const username = localStorage.getItem('username');
 
     useEffect(() => {
-        api.get('/api/user/check_group/')
+        api.get('/api/check_group/')
             .then(response => {
-                if (response.data.is_member_of_group || response.data.is_superuser) {
+                if (response.data.is_superuser) {
                     setUserIsAuthorized(true);
                 }
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
             });
     }, []);
 
@@ -41,6 +45,7 @@ function Home() {
     }, {});
 
     if (!userIsAuthorized) {
+        console.log("notautorized");
         const avaliadorNumber = username.split('_').pop();
 
         return (

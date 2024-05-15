@@ -10,18 +10,13 @@ from django.http import HttpResponse, Http404
 from rest_framework import status
 import io
 # Create your views here.
-    
-# class CreateUserView(generics.CreateAPIView):
-#     queryset = User.objects.all()
-#     serializer_class = UserSerializer
-#     permission_classes = [IsAuthenticated]
 
 class CheckUserGroup(generics.CreateAPIView):
-    def get(self, request):
-        is_member_of_group = request.user.groups.filter(name='RH').exists()
-        is_superuser = request.user.is_superuser
-        return Response({'is_member_of_group': is_member_of_group, 'is_superuser': is_superuser})
     permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        print("CheckUserGroup view called")
+        return Response({'is_superuser': request.user.is_superuser})
 
 class FileUploadView(generics.CreateAPIView):
     permission_classes = [IsAuthenticated]

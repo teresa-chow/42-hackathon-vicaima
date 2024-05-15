@@ -27,30 +27,221 @@ function LoginForm({ route }) {
         }
     };
     return (
-        <div className="flex flex-col justify-center text-black bg-white">
-            <div className="flex flex-col justify-center w-full bg-white max-md:max-w-full">
-                <div className="flex overflow-hidden relative flex-col pb-20 w-full min-h-[1024px] max-md:max-w-full">
-                    <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/f56bc2d2936a523dd14cb1aabdf7d61886e5fe31889901dd2f1b339fb7ba14e6?apiKey=d4ef87dbdadc4d0c82074c04dc070338&" alt="" className="object-cover absolute inset-0 size-full" />
-                    <header className="flex relative gap-5 justify-between py-2 pr-8 pl-2.5 w-full text-base text-center whitespace-nowrap bg-white max-md:flex-wrap max-md:pr-5 max-md:max-w-full">
-                        <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/eab3563f117d37a0aba7d9f1e0437d07e9641ada43a08ad0c0e29d55a22d1107?apiKey=d4ef87dbdadc4d0c82074c04dc070338&" alt="Logo" className="shrink-0 max-w-full aspect-[3.33] w-[212px]" />
-                        <div className="justify-center px-9 py-4 my-auto border border-black border-solid max-md:px-5">
-                            Login
+        <>
+            <div className="div">
+                <div className="div-2">
+                    <div className="div-3">
+                        <img
+                            loading="lazy"
+                            srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/f56bc2d2936a523dd14cb1aabdf7d61886e5fe31889901dd2f1b339fb7ba14e6?apiKey=d4ef87dbdadc4d0c82074c04dc070338&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/f56bc2d2936a523dd14cb1aabdf7d61886e5fe31889901dd2f1b339fb7ba14e6?apiKey=d4ef87dbdadc4d0c82074c04dc070338&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/f56bc2d2936a523dd14cb1aabdf7d61886e5fe31889901dd2f1b339fb7ba14e6?apiKey=d4ef87dbdadc4d0c82074c04dc070338&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/f56bc2d2936a523dd14cb1aabdf7d61886e5fe31889901dd2f1b339fb7ba14e6?apiKey=d4ef87dbdadc4d0c82074c04dc070338&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/f56bc2d2936a523dd14cb1aabdf7d61886e5fe31889901dd2f1b339fb7ba14e6?apiKey=d4ef87dbdadc4d0c82074c04dc070338&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/f56bc2d2936a523dd14cb1aabdf7d61886e5fe31889901dd2f1b339fb7ba14e6?apiKey=d4ef87dbdadc4d0c82074c04dc070338&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/f56bc2d2936a523dd14cb1aabdf7d61886e5fe31889901dd2f1b339fb7ba14e6?apiKey=d4ef87dbdadc4d0c82074c04dc070338&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/f56bc2d2936a523dd14cb1aabdf7d61886e5fe31889901dd2f1b339fb7ba14e6?apiKey=d4ef87dbdadc4d0c82074c04dc070338&"
+                            className="img"
+                        />
+                        <div className="div-4">
+                            <img
+                                loading="lazy"
+                                srcSet="https://cdn.builder.io/api/v1/image/assets/TEMP/eab3563f117d37a0aba7d9f1e0437d07e9641ada43a08ad0c0e29d55a22d1107?apiKey=d4ef87dbdadc4d0c82074c04dc070338&width=100 100w, https://cdn.builder.io/api/v1/image/assets/TEMP/eab3563f117d37a0aba7d9f1e0437d07e9641ada43a08ad0c0e29d55a22d1107?apiKey=d4ef87dbdadc4d0c82074c04dc070338&width=200 200w, https://cdn.builder.io/api/v1/image/assets/TEMP/eab3563f117d37a0aba7d9f1e0437d07e9641ada43a08ad0c0e29d55a22d1107?apiKey=d4ef87dbdadc4d0c82074c04dc070338&width=400 400w, https://cdn.builder.io/api/v1/image/assets/TEMP/eab3563f117d37a0aba7d9f1e0437d07e9641ada43a08ad0c0e29d55a22d1107?apiKey=d4ef87dbdadc4d0c82074c04dc070338&width=800 800w, https://cdn.builder.io/api/v1/image/assets/TEMP/eab3563f117d37a0aba7d9f1e0437d07e9641ada43a08ad0c0e29d55a22d1107?apiKey=d4ef87dbdadc4d0c82074c04dc070338&width=1200 1200w, https://cdn.builder.io/api/v1/image/assets/TEMP/eab3563f117d37a0aba7d9f1e0437d07e9641ada43a08ad0c0e29d55a22d1107?apiKey=d4ef87dbdadc4d0c82074c04dc070338&width=1600 1600w, https://cdn.builder.io/api/v1/image/assets/TEMP/eab3563f117d37a0aba7d9f1e0437d07e9641ada43a08ad0c0e29d55a22d1107?apiKey=d4ef87dbdadc4d0c82074c04dc070338&width=2000 2000w, https://cdn.builder.io/api/v1/image/assets/TEMP/eab3563f117d37a0aba7d9f1e0437d07e9641ada43a08ad0c0e29d55a22d1107?apiKey=d4ef87dbdadc4d0c82074c04dc070338&"
+                                className="img-2"
+                            />
+                            <div className="div-5">Login</div>
                         </div>
-                    </header>
-                    <form onSubmit={handleSubmit} className="flex relative flex-col self-center px-14 py-20 mt-36 mb-24 max-w-full text-sm font-semibold bg-white w-[424px] max-md:px-5 max-md:my-10">
-                        <h1 className="self-center text-4xl text-center">Login</h1>
-                        <label htmlFor="username" className="mt-20 max-md:mt-10">nome de utilizador</label>
-                        <input type="text" id="username" name="username" value={username} onChange={(e) => setUsername(e.target.value)} className="shrink-0 mt-3 border border-black border-solid h-[51px]" />
-                        <label htmlFor="password" className="mt-10 max-md:mt-10">palavra-passe</label>
-                        <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} className="shrink-0 mt-2.5 border border-black border-solid h-[51px]" />
-                        <button type="submit" className="justify-center self-center px-8 py-4 mt-20 mb-2 text-base text-center text-white whitespace-nowrap bg-rose-600 max-md:px-5 max-md:mt-10">
-                            Entrar
-                        </button>
-                    </form>
+                        <div className="div-6">
+                            <form onSubmit={handleSubmit} className="form-container">
+                                <div className="div-7">Login</div>
+                                <div className="div-8">nome de utilizador</div>
+                                <input
+                                    className="div-9"
+                                    type="text"
+                                    value={username}
+                                    onChange={(e) => setUsername(e.target.value)}
+                                    placeholder="Username"
+                                />
+                                <div className="div-10">palavra-passe</div>
+                                <input
+                                    className="div-11"
+                                    type="password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    placeholder="Password"
+                                />
+                                <button className="div-12" type="submit" disabled={loading}>
+                                    {loading ? "Carregando..." : "Entrar"}
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-  );
+            <style jsx>{`
+                .div {
+                    background-color: #fff;
+                    display: flex;
+                    flex-direction: column;
+                    color: #000;
+                    justify-content: center;
+                }
+                .div-2 {
+                    justify-content: center;
+                    background-color: #fff;
+                    display: flex;
+                    width: 100%;
+                    flex-direction: column;
+                }
+                @media (max-width: 991px) {
+                    .div-2 {
+                        max-width: 100%;
+                    }
+                }
+                .div-3 {
+                    display: flex;
+                    flex-direction: column;
+                    overflow: hidden;
+                    position: relative;
+                    min-height: 1024px;
+                    width: 100%;
+                    padding-bottom: 80px;
+                }
+                @media (max-width: 991px) {
+                    .div-3 {
+                        max-width: 100%;
+                    }
+                }
+                .img {
+                    position: absolute;
+                    inset: 0;
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    object-position: center;
+                }
+                .div-4 {
+                    position: relative;
+                    background-color: #fff;
+                    display: flex;
+                    width: 100%;
+                    gap: 20px;
+                    font-size: 16px;
+                    font-weight: 400;
+                    white-space: nowrap;
+                    text-align: center;
+                    justify-content: space-between;
+                    padding: 8px 30px 8px 10px;
+                }
+                @media (max-width: 991px) {
+                    .div-4 {
+                        max-width: 100%;
+                        flex-wrap: wrap;
+                        padding-right: 20px;
+                        white-space: initial;
+                    }
+                }
+                .img-2 {
+                    aspect-ratio: 3.33;
+                    object-fit: auto;
+                    object-position: center;
+                    width: 212px;
+                    max-width: 100%;
+                }
+                .div-5 {
+                    font-family: Inter, sans-serif;
+                    border-color: rgba(0, 0, 0, 1);
+                    border-style: solid;
+                    border-width: 1px;
+                    justify-content: center;
+                    margin: auto 0;
+                    padding: 16px 36px;
+                }
+                @media (max-width: 991px) {
+                    .div-5 {
+                        white-space: initial;
+                        padding: 0 20px;
+                    }
+                }
+                .div-6 {
+                    position: relative;
+                    background-color: #fff;
+                    align-self: center;
+                    display: flex;
+                    width: 424px;
+                    max-width: 100%;
+                    flex-direction: column;
+                    font-size: 14px;
+                    font-weight: 600;
+                    margin: 136px 0 93px;
+                    padding: 75px 54px;
+                }
+                @media (max-width: 991px) {
+                    .div-6 {
+                        margin: 40px 0;
+                        padding: 0 20px;
+                    }
+                }
+                .div-7 {
+                    text-align: center;
+                    align-self: center;
+                    font: 36px Inter, sans-serif;
+                }
+                .div-8 {
+                    font-family: Inter, sans-serif;
+                    font-weight: 400;
+                    margin-top: 87px;
+                }
+                @media (max-width: 991px) {
+                    .div-8 {
+                        margin-top: 40px;
+                    }
+                }
+                .div-9 {
+                    border-color: rgba(0, 0, 0, 1);
+                    border-style: solid;
+                    border-width: 1px;
+                    margin-top: 12px;
+                    height: 51px;
+                    width: 100%;
+                    padding: 10px;
+                    font-size: 16px;
+                }
+                .div-10 {
+                    font-family: Inter, sans-serif;
+                    font-weight: 400;
+                    margin-top: 41px;
+                }
+                @media (max-width: 991px) {
+                    .div-10 {
+                        margin-top: 40px;
+                    }
+                }
+                .div-11 {
+                    border-color: rgba(0, 0, 0, 1);
+                    border-style: solid;
+                    border-width: 1px;
+                    margin-top: 9px;
+                    height: 51px;
+                    width: 100%;
+                    padding: 10px;
+                    font-size: 16px;
+                }
+                .div-12 {
+                    background-color: #dc0232;
+                    align-self: center;
+                    color: #fff;
+                    white-space: nowrap;
+                    text-align: center;
+                    justify-content: center;
+                    margin: 81px 0 7px;
+                    padding: 17px 33px;
+                    font: 16px Inter, sans-serif;
+                    cursor: pointer;
+                }
+                @media (max-width: 991px) {
+                    .div-12 {
+                        margin-top: 40px;
+                        white-space: initial;
+                        padding: 0 20px;
+                    }
+                }
+            `}</style>
+        </>
+    );
 }
 
 export default LoginForm;
