@@ -18,7 +18,7 @@ function Event() {
     if (!userIsAuthorized) {
         return <div>You are not authorized to view this page.</div>;
     }
-    return <EventForm route="/api/user/event/" />;
+    return <EventForm route="/api/event/" />;
 }
 
 export default Event;

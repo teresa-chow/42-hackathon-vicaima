@@ -38,7 +38,6 @@ class FileUploadView(generics.CreateAPIView):
 class AvaliacaoCreateView(generics.CreateAPIView):
     queryset = Avaliacao.objects.all()
     serializer_class = AvaliacaoSerializer
-    permission_classes = [IsAuthenticated]
 
     def create(self, request, *args, **kwargs):
         avaliadores = request.data.get('avaliadores')

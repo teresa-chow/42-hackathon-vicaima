@@ -25,7 +25,7 @@ urlpatterns = [
     path('api/user/avaliacoes/', AvaliacaoListView.as_view()),
     path('api/user/delete/<str:avaliador>/<str:avaliado>/', AvaliacaoDeleteView.as_view()),
     path('api/user/<str:username>/', UserDetailView.as_view()),
-    path('api/user/event/', AvaliacaoCreateView.as_view()),
+    path('api/event/', AvaliacaoCreateView.as_view()),
     path('api/check_group/', CheckUserGroup.as_view(), name='check_group'),
     path("api/token/", TokenObtainPairView.as_view()),
     path("api/token/refresh/", TokenRefreshView.as_view()),
