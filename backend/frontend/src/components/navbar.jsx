@@ -11,6 +11,7 @@ function Navbar() {
                 <li className="nav-item"><Link to="/logout" className="nav-link">Logout</Link></li>
                 <li className="nav-item"><Link to="/upload" className="nav-link">Upload Colaboradores</Link></li>
                 <li className="nav-item"><Link to="/event" className="nav-link">Adicionar Evento</Link></li>
+                <li className="nav-item"><Link to="/evaluationForm" className="nav-link">evaluation form</Link></li>
             </ul>
         </nav>
     );

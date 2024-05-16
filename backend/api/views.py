@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from .insert import AvaliacaoSerializer
-from .models import Avaliacao, UserProfile
+from .models import Avaliacao, UserProfile, Form
 from datetime import datetime
 from rest_framework import generics
 from rest_framework.response import Response
@@ -9,6 +9,10 @@ from rest_framework.permissions import IsAuthenticated, AllowAny, BasePermission
 from .management.commands import import_userprofiles_from_csv
 from django.http import HttpResponse, Http404
 from rest_framework import status
+from rest_framework.views import APIView
+import logging
+
+logger = logging.getLogger(__name__)
 import io
 # Create your views here.
 
@@ -34,7 +38,6 @@ class FileUploadView(generics.CreateAPIView):
         command.handle(csv_file=file_like_object)
 
         return HttpResponse(status=204)
-    
 
 class AvaliacaoCreateView(generics.CreateAPIView):
     queryset = Avaliacao.objects.all()
@@ -49,9 +52,13 @@ class AvaliacaoCreateView(generics.CreateAPIView):
         if not avaliadores or not avaliados:
             return Response({'error': 'Invalid input'}, status=status.HTTP_400_BAD_REQUEST)
 
+        # Create a new form instance
+        form = Form.objects.create()
+        form.save()
+
         for avaliador in avaliadores:
             for avaliado in avaliados:
-                Avaliacao.objects.create(avaliador_id=avaliador, avaliado_id=avaliado, data_inicial=data_inicial, data_final=data_final)
+                Avaliacao.objects.create(avaliador_id=avaliador, avaliado_id=avaliado, data_inicial=data_inicial, data_final=data_final, form=form)
 
         return Response(status=status.HTTP_201_CREATED)
 
@@ -105,3 +112,29 @@ class ImportUserProfiles(generics.CreateAPIView):
             }
         )
         return Response({"message": "User profile imported successfully"}, status=status.HTTP_201_CREATED)
+    
+class FormUpdateView(APIView):
+    def patch(self, request, *args, **kwargs):
+        data = request.data
+        logger.info(f"PATCH data: {data}")
+
+        try:
+            avaliador_numero = data.get('avaliador')
+            logger.info(f"avaliador_numero: {avaliador_numero}")
+            avaliador_profile = UserProfile.objects.get(numero_colaborador=avaliador_numero)
+            avaliacao = Avaliacao.objects.get(avaliador=avaliador_profile)
+            form = avaliacao.form
+
+            form.assiduidade_in = data.get('assiduidade_in', form.assiduidade_in)
+            form.assiduidade_ju = data.get('assiduidade_ju', form.assiduidade_ju)
+            form.responsabilidade = data.get('responsabilidade', form.responsabilidade)
+            form.disponiblidade = data.get('disponiblidade', form.disponiblidade)
+            form.conhecimento = data.get('conhecimento', form.conhecimento)
+            form.produtividade = data.get('produtividade', form.produtividade)
+            form.save()
+
+            return Response({'message': 'Form updated successfully'}, status=status.HTTP_200_OK)
+
+        except Exception as e:
+            logger.exception("Error updating form")
+            return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)

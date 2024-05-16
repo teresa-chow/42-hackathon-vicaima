@@ -17,12 +17,23 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username if self.user else ''
     
+class Form(models.Model):
+    # Add fields for your form here
+    assiduidade_in = models.IntegerField(null=True, default=0)
+    assiduidade_ju = models.IntegerField(null=True, default=0)
+    assiduidade_ju = models.IntegerField(null=True, default=0)
+    responsabilidade = models.IntegerField(null=True, default=0)
+    disponiblidade = models.IntegerField(null=True, default=0)
+    conhecimento = models.IntegerField(null=True, default=0)
+    produtividade = models.IntegerField(null=True, default=0)
+
 class Avaliacao(models.Model):
     id = models.AutoField(primary_key=True)
-    avaliador = models.ForeignKey('auth.User', on_delete=models.SET_NULL, null=True, related_name='avaliacoes_dadas')
-    avaliado = models.ForeignKey('auth.User', on_delete=models.SET_NULL, null=True, related_name='avaliacoes_recebidas')
+    avaliador = models.ForeignKey('UserProfile', on_delete=models.SET_NULL, null=True, related_name='avaliacoes_dadas')
+    avaliado = models.ForeignKey('UserProfile', on_delete=models.SET_NULL, null=True, related_name='avaliacoes_recebidas')
     data_inicial = models.DateField(null=True)
     data_final = models.DateField(null=True)
+    form = models.ForeignKey(Form, on_delete=models.CASCADE, related_name='avaliacoes', null=True)
 
     class Meta:
         verbose_name = 'Avaliação'
@@ -30,4 +41,5 @@ class Avaliacao(models.Model):
 
     def __str__(self):
         return f'Avaliação de {self.avaliador} para {self.avaliado}'
+
 

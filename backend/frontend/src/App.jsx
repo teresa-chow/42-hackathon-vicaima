@@ -7,6 +7,7 @@ import NotFound from "./pages/NotFound"
 import Event from "./pages/Event"
 import Navbar from "./components/navbar"
 import ProtectedRoute from "./components/ProtectedRoute"
+import EvaluationForm from "./pages/form"
 
 function Logout() {
   localStorage.clear()
@@ -28,6 +29,7 @@ function App() {
         <Route path="/logout" element={<Logout />} />
         <Route path="/upload" element={<ProtectedRoute><Register /></ProtectedRoute>} />
         <Route path="/event" element={<ProtectedRoute><Event /></ProtectedRoute>} />
+        <Route path="/evaluationForm" element={<ProtectedRoute><EvaluationForm /></ProtectedRoute>} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
