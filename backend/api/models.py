@@ -29,8 +29,8 @@ class Form(models.Model):
 
 class Avaliacao(models.Model):
     id = models.AutoField(primary_key=True)
-    avaliador = models.ForeignKey('UserProfile', on_delete=models.SET_NULL, null=True, related_name='avaliacoes_dadas')
-    avaliado = models.ForeignKey('UserProfile', on_delete=models.SET_NULL, null=True, related_name='avaliacoes_recebidas')
+    avaliador = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, related_name='avaliacoes_dadas')
+    avaliado = models.ForeignKey(UserProfile, on_delete=models.SET_NULL, null=True, related_name='avaliacoes_recebidas')
     data_inicial = models.DateField(null=True)
     data_final = models.DateField(null=True)
     form = models.ForeignKey(Form, on_delete=models.CASCADE, related_name='avaliacoes', null=True)

@@ -27,4 +27,4 @@ import csv
 class AvaliacaoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Avaliacao
-        fields = ['avaliador', 'avaliado', 'data_inicial', 'data_final', 'form']
+        fields = ['avaliador_id' ,'avaliador', 'avaliado_id', 'avaliado', 'data_inicial', 'data_final', 'form']

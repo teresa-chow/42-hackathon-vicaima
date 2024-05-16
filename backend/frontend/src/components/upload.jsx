@@ -18,24 +18,24 @@ function Upload({ route }) {
   const [file, setFile] = useState(null);
 
   const onFileChange = (e) => {
-      setFile(e.target.files[0]);
+    setFile(e.target.files[0]);
   };
 
   const onFormSubmit = async (e) => {
-      setLoading(true);
-      e.preventDefault();
-      const formData = new FormData();
-      formData.append('file', file);
-      console.log(formData)
-      try {
-          const response = await api.post(route, formData);
-          console.log(response);
-      } catch (error) {
-          console.error(error);
-      } finally {
-        setLoading(false);
-        navigate("/");
-      }
+    setLoading(true);
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append('file', file);
+    console.log(formData)
+    try {
+      const response = await api.post(route, formData);
+      console.log(response);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+      navigate("/");
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -44,15 +44,15 @@ function Upload({ route }) {
 
     try {
       const res = await api.post('/api/create/', {
-            numero_colaborador: numColab,
-            primeiro_nome: firstName,
-            ultimo_nome: lastName,
-            avaliador: numAval,
-            departamento: depart,
-            função: func,
-            data_admissao: data,
-            grupo: group,
-            diretor: diretor,
+        numero_colaborador: numColab,
+        primeiro_nome: firstName,
+        ultimo_nome: lastName,
+        avaliador: numAval,
+        departamento: depart,
+        função: func,
+        data_admissao: data,
+        grupo: group,
+        diretor: diretor,
       });
     } catch (error) {
       alert(error);
@@ -72,18 +72,18 @@ function Upload({ route }) {
             className="img"
           />
           <div className="div-3">
-            <div className="div-4">Home</div>
-            <div className="div-5">Criar evento</div>
-            <div className="div-6">Novo registo</div>
-            <div className="div-7">Logout</div>
+            <a href="/" className="div-4" style={{textDecoration: 'none', color: 'black'}}>Home</a>
+            <a href="/event" className="div-5" style={{textDecoration: 'none', color: 'black'}}>Criar evento</a>
+            <a href="/upload" className="div-6" style={{textDecoration: 'none', color: 'black'}}>Novo registo</a>
+            <a href="/logout" className="div-7" style={{textDecoration: 'none', color: 'white'}}>Logout</a>
           </div>
         </div>
         <div className="div-8">
-            <h1 className="registration-title">Registo de colaboradores</h1>
-            <form onSubmit={onFormSubmit} className="csv-upload">
-                <input type="file" name="file" onChange={onFileChange} />
-                <input type="submit" value="Upload" />
-            </form>
+          <h1 className="registration-title">Registo de colaboradores</h1>
+          <form onSubmit={onFormSubmit} className="csv-upload">
+            <input type="file" name="file" onChange={onFileChange} />
+            <input type="submit" value="Upload" />
+          </form>
           <div className="div-9">
             <div className="div-10">
               <div className="div-11">Registo de colaboradores</div>

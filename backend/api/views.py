@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
 from .insert import AvaliacaoSerializer
 from .models import Avaliacao, UserProfile, Form
 from datetime import datetime
@@ -10,9 +11,6 @@ from .management.commands import import_userprofiles_from_csv
 from django.http import HttpResponse, Http404
 from rest_framework import status
 from rest_framework.views import APIView
-import logging
-
-logger = logging.getLogger(__name__)
 import io
 # Create your views here.
 
@@ -116,15 +114,16 @@ class ImportUserProfiles(generics.CreateAPIView):
 class FormUpdateView(APIView):
     def patch(self, request, *args, **kwargs):
         data = request.data
-        logger.info(f"PATCH data: {data}")
-
+        print(data)
         try:
-            avaliador_numero = data.get('avaliador')
-            logger.info(f"avaliador_numero: {avaliador_numero}")
-            avaliador_profile = UserProfile.objects.get(numero_colaborador=avaliador_numero)
-            avaliacao = Avaliacao.objects.get(avaliador=avaliador_profile)
+            numero_colaborador = data.get('avaliador')
+            # avaliador_profile = get_object_or_404(UserProfile, numero_colaborador=numero_colaborador)
+            # print(avaliador_profile)
+            try:
+                avaliacao = get_object_or_404(Avaliacao, avaliador_id=numero_colaborador)
+            except:
+                print("fds")
             form = avaliacao.form
-
             form.assiduidade_in = data.get('assiduidade_in', form.assiduidade_in)
             form.assiduidade_ju = data.get('assiduidade_ju', form.assiduidade_ju)
             form.responsabilidade = data.get('responsabilidade', form.responsabilidade)
@@ -136,5 +135,4 @@ class FormUpdateView(APIView):
             return Response({'message': 'Form updated successfully'}, status=status.HTTP_200_OK)
 
         except Exception as e:
-            logger.exception("Error updating form")
             return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)

@@ -5,7 +5,6 @@ import Register from "./pages/Register"
 import Home from "./pages/Home"
 import NotFound from "./pages/NotFound"
 import Event from "./pages/Event"
-import Navbar from "./components/navbar"
 import ProtectedRoute from "./components/ProtectedRoute"
 import EvaluationForm from "./pages/form"
 
@@ -22,7 +21,6 @@ function RegisterAndLogout() {
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
       <Routes>
         <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
         <Route path="/login" element={<Login />} />

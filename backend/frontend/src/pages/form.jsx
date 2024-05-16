@@ -10,7 +10,7 @@ const EvaluationForm = () => {
     const [conhecimento, setConhecimento] = useState('');
     const [produtividade, setProdutividade] = useState('');
     const username = localStorage.getItem('username');
-    const avaliado = username.split('_').pop();
+    const avaliador = username.split('_').pop();
     const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
@@ -18,7 +18,7 @@ const EvaluationForm = () => {
         
         try {
             const res = await api.patch('/api/update/', {
-                avaliado,
+                avaliador,
                 assiduidade_in,
                 assiduidade_ju,
                 responsabilidade,
