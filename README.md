@@ -6,13 +6,13 @@ _HR Platform developed in a 3-day period, during the Hackathon promoted by Vicai
 ___
 
 ### Table of contents
-[Challenge](#rocket-challenge) · [Approach](#approach) · [Features](#features) · [Technologies used](#technologies-used) · [Next steps](#next-steps) · [Credits](#credits) · [License](#license)
+[Challenge](#boom-challenge) · [Approach](#approach) · [Features](#features) · [Technologies used](#technologies-used) · [Next steps](#next-steps) · [Credits](#credits) · [License](#license)
 
 ___
 
 </br>
 
-# :rocket: Challenge
+# :boom: Challenge
 
 To design and implement a platform to facilitate the performance evaluation process within the organization, improving its efficiency through better communication and data handling.
 
