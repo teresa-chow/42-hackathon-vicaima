@@ -1,5 +1,5 @@
 # Vicaima Performance Dialogue Platform
-![Vicaima × 42 Porto: Hackathon](https://img.shields.io/badge/Vicaima%20×%2042%20Porto-Hackathon-%23dd0231)
+[![Vicaima × 42 Porto: Hackathon](https://img.shields.io/badge/Vicaima%20×%2042%20Porto-Hackathon-%23dd0231)](https://www.vicaima.com/pt)
 
 _HR Platform developed in a 3-day period, during the Hackathon promoted by Vicaima and 42 Porto (13 - 16 May 2024)._
 
