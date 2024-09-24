@@ -5,6 +5,8 @@ This project was developed during the **Vicaima × 42 Porto Hackathon** (May 202
 
 The platform supports three distinct roles: **Admin (HR)**, **Evaluator**, and **Evaluated**, each with its own set of features tailored to their responsibilities.
 
+![User Flow](https://github.com/Rui-Pedro-Pires/Vicaima-Hackathon/blob/main/img/2024-vicaima-user-flow.jpg)
+
 ## Features
 - **Admin**:
   - Mass data upload (.csv) for employees.
