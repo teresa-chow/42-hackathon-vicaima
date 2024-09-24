@@ -16,6 +16,8 @@ ___
 
 To design and implement a platform to facilitate the performance evaluation process within the organization, improving its efficiency through better communication and data handling.
 
+[Know more.](./docs/)
+
 </br>
 
 ## Approach
