@@ -81,18 +81,15 @@ The core functionalities of the platform have been implemented, including role-b
 </br>
 
 ## Next Steps
-<table>
-  <tr>
-    <th>🔴 Short-term</th>
-    <th>🟡 Mid-term</th>
-    <th>🟢 Long-term</th>
-  </tr>
-  <tr>
-    <td>Implement a data dashboard for enhanced visualization of organizational performance data and a mechanism for evaluated users to confirm their knowledge of evaluation results.</td>
-    <td>Add additional features to enhance each role's capabilities.</td>
-    <td>Continuously adapt the platform to meet Vicaima’s specific organizational needs by introducing new variables and features.</td>
-  </tr>
-</table>
+
+### 🔴 Short-term
+Implement a data dashboard for enhanced visualization of organizational performance data and a mechanism for evaluated users to confirm their knowledge of evaluation results. 
+
+### 🟡 Mid-term</th>
+Add additional features to enhance each role's capabilities.
+
+### 🟢 Long-term</th>
+Continuously adapt the platform to meet Vicaima’s specific organizational needs by introducing new variables and features.
 
 ___
 
